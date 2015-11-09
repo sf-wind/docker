@@ -2,4 +2,4 @@ FROM scratch
 
 VOLUME /var/lib/mysql
 
-ENTRYPOINT["/no/such/file"]
+ENTRYPOINT ["/no/such/file"]
