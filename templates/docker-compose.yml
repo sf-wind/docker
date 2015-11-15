@@ -1,0 +1,31 @@
+mysql_data:
+  container_name: feisun.org_mysql_data
+  image: sunfei/mysql_data
+  
+mysql:
+  container_name: feisun.org_mysql
+  image: sunfei/mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=Feisun.Org!234
+    - MYSQL_USER=feisun
+    - MYSQL_PASSWORD=F1e2i3s4un_
+    - MYSQL_DATABASE=feisun.org
+  volumes_from:
+    - mysql_data
+
+wordpress_data:
+  container_name: feisun.org_wordpress_data
+  image: sunfei/wordpress_data
+  
+wordpress:
+  container_name: feisun.org_wordpress
+  image: sunfei/wordpress
+  links:
+    - mysql:mysql
+  environment:
+    - WORDPRESS_DB_USER=feisun
+    - WORDPRESS_DB_PASSWORD=F1e2i3s4un_
+    - WORDPRESS_DB_NAME=feisun.org
+    - VIRTUAL_HOST=feisun.org,www.feisun.org
+  volumes_from:
+    - wordpress_data
