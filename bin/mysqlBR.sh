@@ -57,7 +57,7 @@ done
 
 DBFILE=$1
 
-if [[ $BACKUP -ne "true" && $RESTORE -ne "true" ]]; then
+if [[ $BACKUP != "true" && $RESTORE != "true" ]]; then
   echo "Must specify backup or restore argument"
   exit
 fi
